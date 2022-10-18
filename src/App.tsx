@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useFirebase } from './contexts';
 
-function App() {
+const App = () => {
+	const { app } = useFirebase();
+
+	useEffect(() => {
+		console.log('🚀 ~ firebase app', app);
+	}, [app]);
+
 	return (
 		<div className='App'>
 			<header className='App-header'>
@@ -21,6 +28,6 @@ function App() {
 			</header>
 		</div>
 	);
-}
+};
 
 export default App;
